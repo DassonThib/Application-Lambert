@@ -1,0 +1,1 @@
+<p>Liste des hôpitaux</p>
