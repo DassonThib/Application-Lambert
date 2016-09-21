@@ -7,6 +7,26 @@
 	}
 	// print_r($_SESSION);
 	// print_r($_COOKIE);
+	
+	/** Traçage utilisateurs **/
+
+	define("DB_SERVER", "localhost");
+	define("DB_USER", "userbdd");
+	define("DB_PASS", "Ustst_12");
+	define("DB_NAME", "merdic");
+
+
+	// 1. Create a database connection
+	$connection = mysql_connect(DB_SERVER,DB_USER,DB_PASS);
+	if (!$connection) {
+		die("Impossible de se connecter à la base de données : " . mysql_error());
+	}
+
+	// 2. Select a database to use
+	$db_select = mysql_select_db(DB_NAME,$connection);
+	if (!$db_select) {
+		die("Base de données non trouvée : " . mysql_error());
+	}
 ?>
 
 <html lang="fr">
