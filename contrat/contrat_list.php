@@ -16,15 +16,10 @@
 	?>
 </table>
 
-<script>
-	function myfunction(id){
-		console.log(id);
-		document.location.href = "medecin/medecin_edit.php";
-	}
-	
+<script>	
 	function loadPartial2(id) {
 		$.ajax({
-			url: 'medecin/medecin_edit.php',
+			url: 'contrat/contrat_edit.php',
 			type: 'POST',
 			data: 'id='+id,
 			dataType: 'html',

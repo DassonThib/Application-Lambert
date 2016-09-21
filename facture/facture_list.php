@@ -1,3 +1,5 @@
+
+<!-- Liste des médecins -->
 <table id="medecinList">
 	<tr><th>Id</th><th>Nom</th><th>Prenom</th><th>Email</th><th>Specialité</th><th>Telephone</th><th>Mobile</th><th>Editer</th></tr>
 	<?php 
@@ -16,15 +18,10 @@
 	?>
 </table>
 
-<script>
-	function myfunction(id){
-		console.log(id);
-		document.location.href = "medecin/medecin_edit.php";
-	}
-	
+<script>	
 	function loadPartial2(id) {
 		$.ajax({
-			url: 'medecin/medecin_edit.php',
+			url: 'facture/facture_edit.php',
 			type: 'POST',
 			data: 'id='+id,
 			dataType: 'html',

@@ -21,7 +21,7 @@
       <header>
         <a href="index.php"><h1 id="titreBlog">Bienvenue sur Merdic Intérim</h1></a>
       </header>
-	  
+	  	  
 	  <!-- #menu -->
       <div id="menu">
 		<table>
@@ -29,7 +29,8 @@
 				<button onclick="loadPartial('hopital')">Hôpitaux</button>
 				<button onclick="loadPartial('medecin')">Médecins</button>
 				<button onclick="loadPartial('contrat')">Contrats</button>
-				<button onclick="loadPartial('planning')">Planning</button>
+				<button onclick="loadPartial('facture')">Facturation</button>
+				<button onclick="loadPartial('planning')">Planning</button>				
 				<button onclick="loadPartial('deco')">Déconnexion</button>
 			</tr>
 		</table>
@@ -70,6 +71,16 @@
 					case 'contrat':
 						$.ajax({
 							url: 'contrat/contrat_index.php',
+							type: 'GET',
+							dataType: 'html',
+							success: function (result) {
+								$('#partialView').html(result);
+							}
+						});
+						break;
+					case 'facture':
+						$.ajax({
+							url: 'facture/facture_index.php',
 							type: 'GET',
 							dataType: 'html',
 							success: function (result) {
