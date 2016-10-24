@@ -11,9 +11,9 @@
 	/** Traçage utilisateurs **/
 
 	define("DB_SERVER", "localhost");
-	define("DB_USER", "userbdd");
-	define("DB_PASS", "Ustst_12");
-	define("DB_NAME", "merdic");
+	define("DB_USER", "root");
+	define("DB_PASS", "Admin@123");
+	define("DB_NAME", "application-lambert");
 
 
 	// 1. Create a database connection
