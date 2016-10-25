@@ -12,18 +12,18 @@
 
 	define("DB_SERVER", "localhost");
 	define("DB_USER", "root");
-	define("DB_PASS", "Admin@123");
+	define("DB_PASS", "");
 	define("DB_NAME", "application-lambert");
 
 
 	// 1. Create a database connection
-	$connection = mysql_connect(DB_SERVER,DB_USER,DB_PASS);
+	$connection = mysqli_connect(DB_SERVER,DB_USER,DB_PASS);
 	if (!$connection) {
 		die("Impossible de se connecter à la base de données : " . mysql_error());
 	}
 
 	// 2. Select a database to use
-	$db_select = mysql_select_db(DB_NAME,$connection);
+	$db_select = mysqli_select_db($connection,DB_NAME);
 	if (!$db_select) {
 		die("Base de données non trouvée : " . mysql_error());
 	}
