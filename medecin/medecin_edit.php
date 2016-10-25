@@ -1,1 +1,1 @@
-<p>Medecin Edit</p>
+<p>Fiche du médecin</p>

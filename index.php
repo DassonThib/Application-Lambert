@@ -1,29 +1,36 @@
 <!doctype html>
 <?php 
-if(isset($_POST['username']) and isset($_POST['password'])){
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	
-	if($username == "Thibault" and $password == "123"){
+	if(isset($_POST['username']) and isset($_POST['password'])){
+		require "sql_connexion.php";
+
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+
+		$query = "SELECT * FROM user WHERE Login = '$username' AND Password = '$password'";
+		$result = mysqli_query($connexion, $query);
+		if(!$result) echo $query;
+		$rowCount = mysqli_num_rows($result);
+
+		if($rowCount > 0){
+			session_start();
+			$_SESSION['Username'] = $username;
+			$_SESSION['Password'] = $password;
+			header("Location: home.php");
+		} else {
+			echo "Le login ou le mot de passe est incorrect";
+		}
+
+		mysqli_free_result($result);
+		mysqli_close($connexion);
+	} else {
 		session_start();
-		$_SESSION['Username'] = $username;
-		$_SESSION['Password'] = $password;
-		header("Location: home.php");
+		unset($_SESSION['Username']);
+		unset($_SESSION['Password']);
 	}
-} else {
-	session_start();
-	unset($_SESSION['Username']);
-	unset($_SESSION['Password']);
-}
-// print_r($_SESSION);
 ?>
 
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Merdic Interim</title>
-  </head>
+  <?php require "header.php"; ?>
   <body>
     <div id="global">
       <header>
@@ -44,9 +51,7 @@ if(isset($_POST['username']) and isset($_POST['password'])){
 			</form>
 			</table>
       </div> <!-- #contenu -->
-      <footer id="piedBlog">
-        Blog réalisé avec PHP, HTML5 et CSS par Thibault Dassonville.
-      </footer>
+      <?php require "footer.php"; ?>
     </div> <!-- #global -->
   </body>
 </html>

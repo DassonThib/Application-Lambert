@@ -1,36 +1,21 @@
-<table id="medecinList">
-	<tr><th>Id</th><th>Nom</th><th>Prenom</th><th>Email</th><th>Specialité</th><th>Telephone</th><th>Mobile</th><th>Editer</th></tr>
-	<?php 
-		$list = array(
-			array( "id" => 1, "nom" => "toto", "prenom" => "titi", "email" => "toto@example.com", "specialite" => "Urgence", "telephone" => "0123456789", "mobile" => "0612345789" ),
-			array( "id" => 2, "nom" => "Dassonville", "prenom" => "Thibault", "email" => "tdassonville@example.com", "specialite" => "Chirurgie", "telephone" => "0123456789", "mobile" => "0612345789" ),
-			array( "id" => 3, "nom" => "Chetouani", "prenom" => "Badr", "email" => "bchetouani@example.com", "specialite" => "Regler le problème à la source", "telephone" => "0123456789", "mobile" => "0612345789" ),
-			array( "id" => 4, "nom" => "Tahri", "prenom" => "Nabil", "email" => "ntahri@example.com", "specialite" => "Pediatrie", "telephone" => "0123456789", "mobile" => "0612345789" ),
-			array( "id" => 5, "nom" => "Monsoh", "prenom" => "Lincoln", "email" => "lmonsoh@example.com", "specialite" => "Urgence", "telephone" => "0123456789", "mobile" => "0612345789" ),
-			array( "id" => 6, "nom" => "Tocard", "prenom" => "Lambert", "email" => "ltocard@example.com", "specialite" => "Escroc", "telephone" => "0123456789", "mobile" => "0612345789" )
-		);
-		
-		foreach($list as $val){
-			echo "<tr><td>".$val['id']."</td><td>".$val['nom']."</td><td>".$val['prenom']."</td><td>".$val['email']."</td><td>".$val['specialite']."</td><td>".$val['telephone']."</td><td>".$val['mobile']."</td><td><button onclick='loadPartial2(".$val['id'].")'>Editer</button></td></tr>";
-		}
-	?>
-</table>
+<?php
+	require "../sql_connexion.php";
 
-<script>
-	function myfunction(id){
-		console.log(id);
-		document.location.href = "medecin/medecin_edit.php";
-	}
+	$text = '<table id="medecinList">';
+	$text .= '<tr><th>Id</th><th>Nom</th><th>Prenom</th><th>Email</th><th>Telephone</th><th>Mobile</th><th>Editer</th></tr>';
 	
-	function loadPartial2(id) {
-		$.ajax({
-			url: 'medecin/medecin_edit.php',
-			type: 'POST',
-			data: 'id='+id,
-			dataType: 'html',
-			success: function (result) {
-				$('#partialView').html(result);
-			}
-		});
+	$query = "SELECT * FROM medecins";
+	$result = mysqli_query($connexion, $query);
+	if(!$result) echo $query;
+
+	while($row = mysqli_fetch_assoc($result)){
+		$text .= "<tr><td>".$row['id']."</td><td>".$row['nom_med']."</td><td>".$row['prenom_med']."</td><td>".$row['email_med']."</td><td>".$row['tel_med']."</td><td>".$row['mobile_med']."</td><td><button onclick='editMed(".$row['id'].")'>Editer</button></td></tr>";
 	}
-</script>
+
+	$text .= '</table>';
+
+	mysqli_free_result($result);
+	mysqli_close($connexion);
+
+	echo $text;
+?>
