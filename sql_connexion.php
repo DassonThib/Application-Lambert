@@ -16,4 +16,6 @@
 	if (!$db_select) {
 		die("Base de données non trouvée : " . mysql_error());
 	}
+
+	mysqli_set_charset($connexion, 'utf8');
 ?>

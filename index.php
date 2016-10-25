@@ -34,10 +34,10 @@
   <body>
     <div id="global">
       <header>
-        <a href="index.php"><h1 id="titreBlog">Bienvenue sur Merdic Intérim</h1></a>
+        <a href="index.php" class="titreBlog"><h1>Bienvenue sur Merdic Intérim</h1></a>
       </header>
       <div id="contenu">
-		<table>
+		<table id="loginForm">
 			<form method="POST" action="index.php">
 				<tr>
 					<td><label>Identifiant :</label></td>
@@ -47,11 +47,12 @@
 					<td><label>Mot de passe :</label></td>
 					<td><input type='password' name='password'></td>
 				</tr>
+				<tr><td></td></tr>
 				<tr><td><input type='submit' value='Se connecter'></td></tr>
 			</form>
-			</table>
+		</table>
       </div> <!-- #contenu -->
-      <?php require "footer.php"; ?>
+      
     </div> <!-- #global -->
   </body>
 </html>

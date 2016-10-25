@@ -11,7 +11,7 @@
   <body>
     <div id="global">
       <header>
-        <a href="home.php"><h1 id="titreBlog">Bienvenue sur Merdic Intérim</h1></a>
+        <a href="home.php" class="titreBlog"><h1>Bienvenue sur Merdic Intérim</h1></a>
       </header>
 	  	  
 	  <!-- #menu -->
@@ -31,7 +31,6 @@
 	  <!-- #contenu -->
 	  <div id="partialView"></div>
 	  
-      <?php require "footer.php"; ?>
     </div> <!-- #global -->
 	
 	<!-- Fonction de chargement des différents menus -->

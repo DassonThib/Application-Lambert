@@ -12,32 +12,70 @@ html, body {
 }
 
 body {
-    color: #bfbfbf;
-    background: black;
-    font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
+  color: #bfbfbf;
+  background: black;
+  font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
 }
 
 h1 {
-    color: white;
+  color: white;
 }
 
 .titreBillet {
-    margin-bottom : 0px;
+  margin-bottom : 0px;
+}
+
+.titreBlog, #piedBlog {
+  text-decoration: none;
+  text-align: center;
 }
 
 #global {
-    min-height: 100%;  /* Voir commentaire sur html et body plus haut */
-    background: #333534;
-    width: 70%;
-    margin: auto;    /* Permet de centrer la div */
-    text-align: justify;
-    padding: 5px 20px;
+  min-height: 100%;  /* Voir commentaire sur html et body plus haut */
+  background: #333534;
+  width: 70%;
+  margin: auto;    /* Permet de centrer la div */
+  text-align: justify;
+  padding: 5px 20px;
 }
 
 #contenu {
-    margin-bottom : 30px;
+  margin-bottom : 30px;
+  margin-left: 40%;
 }
 
-#titreBlog, #piedBlog {
-    text-align: center;
+#loginForm {
+  border: 2px white solid;
+  padding: 5px; 
+}
+
+#loginForm label {
+  font-weight: bold;
+}
+
+#medecinList {
+  border: 1px white solid;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#medecinList th, #medecinList td {
+  border: 1px white solid;
+  text-align: center;
+  padding: 3px;
+}
+
+#infoMed {
+  border : 2px white solid;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#infoMed th, #infoMed td {
+  border: 1px solid white;
+  padding: 5px;
+}
+
+#infoMed input {
+  width: 90%;
 }

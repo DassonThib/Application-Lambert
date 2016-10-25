@@ -61,7 +61,7 @@ function editMed(id) {
 	$.ajax({
 		url: 'medecin/medecin_edit.php',
 		type: 'POST',
-		data: 'id='+id,
+		data: 'id_med='+id,
 		dataType: 'html',
 		success: function (result) {
 			$('#partialView').html(result);
