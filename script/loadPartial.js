@@ -57,11 +57,11 @@ function loadPartialMenu(page) {
 	}
 }
 
-function editMed(id) {
+function editMed(id_med) {
 	$.ajax({
 		url: 'medecin/medecin_edit.php',
 		type: 'POST',
-		data: 'id_med='+id,
+		data: {id_med:id_med},
 		dataType: 'html',
 		success: function (result) {
 			$('#partialView').html(result);
