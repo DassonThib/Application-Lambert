@@ -47,7 +47,7 @@ function insertMed(){
 			mobile_med:mobile_med
 		},
 		success: function(result){
-			$('#partialView').html(result);
+			window.close();
 		}
 	});
 }

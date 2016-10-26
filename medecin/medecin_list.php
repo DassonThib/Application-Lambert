@@ -1,7 +1,8 @@
 <?php
 	require "../sql_connexion.php";
 
-	$text = '<table id="medecinList">';
+	$text = "<button onclick='addMedWindow()'>Ajouter un medecin</button>";
+	$text .= '<table id="medecinList">';
 	$text .= '<tr>
 	<th>Id</th>
 	<th>Nom</th>
@@ -37,3 +38,4 @@
 
 	echo $text;
 ?>
+<script type='text/javascript' src='medecin/scripts/medecinList.js'></script>
